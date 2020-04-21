@@ -1,6 +1,5 @@
 /* eslint-disable no-lone-blocks */
 import React, {useState} from 'react'
-import {CaretDown, CaretUp} from "grommet-icons";
 import {render} from 'react-dom'
 import SockJsClient from 'react-stomp'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -79,7 +78,7 @@ export function WelcomeContainer() {
         var ElevatorId = array[0]
         var Floor = parseInt(array[1])
 
-        fetch('http://localhost:8080/api/rest/v1/adress-elevator?elevatorId=' + ElevatorId
+        fetch('http://localhost:8080/api/rest/v1/address-elevator?elevatorId=' + ElevatorId
             + '&floor=' + Floor, {
             method: "POST",
             headers: {
@@ -129,10 +128,8 @@ export function WelcomeContainer() {
                                   if (inicialized === true) {
                                       var elevators = [A, B, C, D, E]
                                       var slicedElevator = elevators.slice(0, elevatorsNumber)
-                                      console.log(slicedElevator)
 
                                       for (const element of slicedElevator) {
-                                          console.log(element)
                                           document.getElementById(element).style.backgroundColor = 'grey';
                                       }
 
@@ -238,11 +235,12 @@ export function WelcomeContainer() {
                                         >
                                             <Button
                                                 className='buttonsUpDown'
+                                                color="mediumspringgreen"
                                                 key={`UP ${floorsNumber - i - 1}`}
                                                 id={`UP ${floorsNumber - i - 1}`}
                                                 size="small"
                                                 round="full"
-                                                icon={<CaretUp/>}
+                                                label='▲'
 
                                                 href="#"
                                                 onClick={(event) => {
@@ -251,11 +249,12 @@ export function WelcomeContainer() {
                                             />{' '}
                                             <Button
                                                 className='buttonsUpDown'
+                                                color="mediumspringgreen"
                                                 key={`DOWN ${floorsNumber - i - 1}`}
                                                 id={`DOWN ${floorsNumber - i - 1}`}
                                                 round="full"
                                                 size="small"
-                                                icon={<CaretDown/>}
+                                                label='▼'
 
                                                 href="#"
                                                 onClick={(event) => {
