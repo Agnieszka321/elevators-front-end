@@ -130,7 +130,8 @@ export function WelcomeContainer() {
                                       var slicedElevator = elevators.slice(0, elevatorsNumber)
 
                                       for (const element of slicedElevator) {
-                                          document.getElementById(element).style.backgroundColor = 'grey';
+                                          if (document.getElementById(element) != null)
+                                              document.getElementById(element).style.backgroundColor = 'grey';
                                       }
 
 
